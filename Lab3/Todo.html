@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>To-do list</title>
+    <style>
+        #header{
+            background-color: lightblue;
+            font-size: large;
+        }
+        #main{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .title{
+            font-size: 40px;
+            position: relative;
+            right: 30%;
+        }
+        #form{
+            width: 500px;
+            height: 30px;
+            position: relative;
+            right: 50px;
+        }
+        #submit{
+            width: 70px;
+            height: 30px;
+            background-color: #0f72bd;
+            color: white;
+            border-style: none;
+        }
+
+    </style>
+</head>
+<body>
+<div id="header">
+    <h1>To-do list</h1>
+</div>
+<div id="main">
+    <div class="title">To-do list</div>
+    <form>
+        <input id="form" type="text" name="task" placeholder="New task">
+        <button id="submit" type="button">Add</button>
+    </form>
+    <div id="list"></div>
+</div>
+
+<script>
+    const form = document.getElementById('form');
+    const submit = document.getElementById('submit');
+    document.getElementById('submit').addEventListener('click', function(){
+        if(form.value === ''){
+            return;
+        }
+        let newDiv = document.createElement("div");
+        newDiv.innerText = form.value;
+        form.value = '';
+        newDiv.style.background = "#f0f0f0";
+        newDiv.style.padding = "10px";
+        newDiv.style.margin = "5px";
+        newDiv.style.width = "500px";
+        let deleteB = document.createElement("button");
+        deleteB.style.backgroundImage = "url('5496335.png')";
+        deleteB.style.backgroundSize = "cover";
+        deleteB.style.height = "25px";
+        deleteB.style.width = "25px";
+        deleteB.style.margin = "5px";
+        deleteB.style.borderStyle = "none";
+        deleteB.addEventListener('click', function(){
+            newDiv.remove()
+        });
+        deleteB.style.float = "right";
+        deleteB.style.position = "relative";
+        deleteB.style.bottom = "10px";
+        newDiv.append(deleteB);
+        let checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.checked = false;
+        checkbox.style.width = "10px";
+        checkbox.style.height = "10px";
+        checkbox.style.float = "left";
+        checkbox.addEventListener('change', function(){
+            if(checkbox.checked){
+                newDiv.style.textDecoration = "line-through";
+            }
+            else{
+                newDiv.style.textDecoration = "none";
+            }
+        });
+        newDiv.appendChild(checkbox);
+
+
+        document.getElementById("list").appendChild(newDiv);
+    })
+</script>
+</body>
+</html>
