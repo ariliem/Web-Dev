@@ -1,0 +1,6 @@
+#product-grid{
+  display: grid;
+  grid-template-columns: 400px 400px 400px;
+  grid-template-rows: auto;
+  gap:10px;
+}

@@ -1,0 +1,9 @@
+<div id="product-grid">
+  <app-product-item *ngFor="let product of products"
+                    [product] = "product"
+                    [products]="products"
+                    [globalProducts]="globalProducts"
+                    [currentCategory]="currentCategory"
+  >
+  </app-product-item>
+</div>
