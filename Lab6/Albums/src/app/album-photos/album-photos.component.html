@@ -1,0 +1,8 @@
+<h1>Album Photos</h1>
+<div *ngIf="photos && photos.length">
+  <div *ngFor="let photo of photos" style="display:inline-block; margin:10px;">
+    <img [src]="photo.url" alt="{{ photo.title }}" style="max-width:200px; display:block;">
+    <p>{{ photo.title }}</p>
+  </div>
+</div>
+<div><button (click)="goBack()">Return</button></div>

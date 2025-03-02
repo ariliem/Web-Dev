@@ -1,0 +1,21 @@
+h1{
+  margin: 10px;
+  font-size: 50px;
+}
+
+input{
+  font-size: 24px;
+}
+
+div{
+  margin: 25px;
+  padding: 10px;
+  text-align: center;
+  font-size: 24px;
+  background-color: aliceblue;
+}
+
+button{
+  margin-right: 10px;
+  font-size: 24px;
+}
